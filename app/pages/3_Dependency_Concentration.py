@@ -8,7 +8,7 @@ import streamlit as st
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
 
 from rewirescope.terminal_data import bins_for, load_terminal_tables, site_year_options
-from rewirescope.terminal_ui import apply_terminal_style, boundary_callout, metric_strip, source_note
+from rewirescope.terminal_ui import apply_terminal_style, boundary_callout, ghost_panel, metric_strip, source_note
 from rewirescope.viz.figures import (
     concentration_radar,
     concentration_small_multiples,
@@ -86,4 +86,21 @@ cols = [
     "evidence_summary",
     "falsification_condition",
 ]
-st.dataframe(fragile[cols], use_container_width=True, hide_index=True)
+if fragile.empty:
+    ghost_panel(
+        "No compensatory-but-fragile transitions for this selection",
+        "The selected site-year has no transition that meets the current concentration-delta and effective-load criteria.",
+        requirement="select another site/year or adjust classification thresholds in the rules module",
+        claim_after="observed rewiring diagnostic",
+    )
+else:
+    st.dataframe(
+        fragile[cols],
+        use_container_width=True,
+        hide_index=True,
+        column_config={
+            "time_window": st.column_config.TextColumn("time_window", width="medium"),
+            "evidence_summary": st.column_config.TextColumn("evidence_summary", width="large"),
+            "falsification_condition": st.column_config.TextColumn("falsification_condition", width="large"),
+        },
+    )

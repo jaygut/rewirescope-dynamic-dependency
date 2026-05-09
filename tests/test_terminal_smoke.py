@@ -8,7 +8,7 @@ from rewirescope.viz import figures
 
 
 def test_app_pages_compile():
-    for path in [Path("app/streamlit_app.py"), *Path("app/pages").glob("*.py")]:
+    for path in [Path("app/Overview.py"), *Path("app/pages").glob("*.py")]:
         py_compile.compile(str(path), doraise=True)
 
 

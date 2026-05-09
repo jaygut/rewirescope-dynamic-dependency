@@ -11,7 +11,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
 from rewirescope.ingest.ecomon import SOURCE as ECOMON
 from rewirescope.ingest.helgoland import SOURCE as HELGOLAND
 from rewirescope.terminal_data import load_terminal_tables
-from rewirescope.terminal_ui import apply_terminal_style, boundary_callout, metric_strip
+from rewirescope.terminal_ui import apply_terminal_style, boundary_callout, ghost_panel, metric_strip
 
 
 st.set_page_config(page_title="Trophic Timing Risk Gate", layout="wide")
@@ -37,9 +37,16 @@ metric_strip(
     [
         ("Marine sources", f"{len(marine_registry):,}", "source_buildability_audit rows"),
         ("Observed pairwise trophic edges", "0", "audited source boundary"),
-        ("Allowed claim", "inferred dependency", "source_buildability_audit.allowed_claim_level"),
+        ("Allowed claim", "inferred_dependency", "source_buildability_audit.allowed_claim_level"),
         ("Rendered analytic charts", "0", "no local abundance time series ingested yet"),
     ]
+)
+
+ghost_panel(
+    "Rolling Trophic Dependency Graph",
+    "No marine association graph is rendered because the audited sources do not provide observed pairwise trophic edges in the local build.",
+    requirement="time-aligned abundance table plus method-labeled association or trophic-prior model",
+    claim_after="inferred dynamic dependency with uncertainty labels",
 )
 
 st.subheader("Source Status")

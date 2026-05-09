@@ -9,7 +9,7 @@ VALID_CLASSES = {
     "adaptive",
     "compensatory-but-fragile",
     "degradative",
-    "silent-edge-failure",
+    "candidate-silent-edge-failure",
     "unresolved",
 }
 
@@ -34,9 +34,9 @@ def classify_transition(row: pd.Series | dict) -> dict:
 
     if silent_count > 0 and edge_delta <= 0:
         return {
-            "classification": "silent-edge-failure",
+            "classification": "candidate-silent-edge-failure",
             "confidence": "medium",
-            "evidence_summary": f"{int(silent_count)} expected interactions were absent while endpoint taxa remained active.",
+            "evidence_summary": f"Candidate signal: {int(silent_count)} expected interactions were absent while endpoint taxa remained active.",
             "falsification_condition": "Targeted observation detects the missing edges during the same phenological window.",
         }
 

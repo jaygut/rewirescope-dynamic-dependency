@@ -2,7 +2,7 @@
 
 Each decision signal contains:
 
-- `classification`: adaptive, compensatory-but-fragile, degradative, silent-edge-failure, or unresolved;
+- `classification`: adaptive, compensatory-but-fragile, degradative, candidate-silent-edge-failure, or unresolved;
 - `confidence`: low, medium, or high;
 - `allowed_claim_level`: observed_rewiring, partial_contrast, inferred_dependency, or metrics_only;
 - `evidence_summary`: the quantitative reason for the classification;

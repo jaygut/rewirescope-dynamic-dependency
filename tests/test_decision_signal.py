@@ -34,3 +34,16 @@ def test_compensatory_fragile_rule():
     )
 
     assert result["classification"] == "compensatory-but-fragile"
+
+
+def test_silent_edge_rule_is_candidate_labeled():
+    result = classify_transition(
+        {
+            "allowed_claim_level": "observed_rewiring",
+            "edges_delta": -1,
+            "silent_edge_candidates": 4,
+        }
+    )
+
+    assert result["classification"] == "candidate-silent-edge-failure"
+    assert "Candidate signal" in result["evidence_summary"]

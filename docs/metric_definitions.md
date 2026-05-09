@@ -57,5 +57,5 @@ Rules-based first version:
 - adaptive: rewiring occurs while redundancy is stable or improving and dependency concentration is stable or lower;
 - compensatory-but-fragile: apparent function is stable, but concentration rises or effective partner diversity declines;
 - degradative: edge count, connectance, or partner diversity decline while concentration rises;
-- silent-edge-failure: expected interactions fail while taxa remain active;
+- candidate-silent-edge-failure: expected interactions are absent while taxa remain active; this is a candidate flag, not proof of causal interaction extinction;
 - unresolved: evidence is insufficient or mixed.

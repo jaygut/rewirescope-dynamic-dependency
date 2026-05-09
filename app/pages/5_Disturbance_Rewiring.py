@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
 
 from rewirescope.ingest.lazaro import workbook_audit
 from rewirescope.terminal_data import load_terminal_tables
-from rewirescope.terminal_ui import apply_terminal_style, boundary_callout, metric_strip
+from rewirescope.terminal_ui import apply_terminal_style, boundary_callout, ghost_panel, metric_strip
 
 
 st.set_page_config(page_title="Disturbance Rewiring Gate", layout="wide")
@@ -40,6 +40,13 @@ metric_strip(
         ("Rewiring visualization", str(row["visualize_rewiring_events"]), "source_buildability_audit.visualize_rewiring_events"),
         ("Workbook inspected", "yes" if audit["exists"] and audit["problem"] is None else "no", "local workbook audit"),
     ]
+)
+
+ghost_panel(
+    "Habitat-Loss Rewiring Gradient",
+    "No seasonal plant-pollinator network or habitat-gradient chart is rendered until the source workbook is present and its raw edge columns pass inspection.",
+    requirement="site, season, plant taxon, pollinator taxon, interaction count, and habitat-loss gradient",
+    claim_after="partial contrast or observed rewiring, depending on repeated raw edge coverage",
 )
 
 st.subheader("Current Audit")

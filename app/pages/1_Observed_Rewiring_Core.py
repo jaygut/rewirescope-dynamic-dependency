@@ -12,7 +12,14 @@ from rewirescope.terminal_data import (
     site_year_options,
     transition_options,
 )
-from rewirescope.terminal_ui import apply_terminal_style, boundary_callout, metric_strip, source_note
+from rewirescope.terminal_ui import (
+    apply_terminal_style,
+    boundary_callout,
+    classification_glossary,
+    metric_strip,
+    quiet_callout,
+    source_note,
+)
 from rewirescope.viz.figures import (
     classification_strip,
     edge_persistence_heatmap,
@@ -42,6 +49,7 @@ st.caption("RMBL / CaraDonna EDI weekly plant-pollinator interaction data | obse
 boundary_callout(
     "<strong>Claim level:</strong> observed rewiring. This page uses direct plant-pollinator visit records, repeated weekly time bins, and raw interaction counts."
 )
+classification_glossary()
 
 sites, years = site_year_options(interactions)
 c1, c2, c3 = st.columns([1, 1, 2])
@@ -82,10 +90,13 @@ with right:
     st.plotly_chart(transition_decomposition(signals, site, year), use_container_width=True)
     st.plotly_chart(classification_strip(signals, site, year), use_container_width=True)
 
-st.subheader("Edge Persistence")
+st.subheader("Persistence Over Time")
 st.plotly_chart(edge_persistence_heatmap(interactions, site, year), use_container_width=True)
 
 st.subheader("Transition Evidence")
+quiet_callout(
+    "All silent-edge classifications are candidate flags. They identify missing expected interactions during observed active windows; they do not prove causal interaction extinction."
+)
 columns = [
     "time_window",
     "classification",
@@ -96,4 +107,14 @@ columns = [
     "evidence_summary",
     "falsification_condition",
 ]
-st.dataframe(transitions[columns], use_container_width=True, hide_index=True)
+st.dataframe(
+    transitions[columns],
+    use_container_width=True,
+    hide_index=True,
+    column_config={
+        "time_window": st.column_config.TextColumn("time_window", width="medium"),
+        "classification": st.column_config.TextColumn("classification", width="medium"),
+        "evidence_summary": st.column_config.TextColumn("evidence_summary", width="large"),
+        "falsification_condition": st.column_config.TextColumn("falsification_condition", width="large"),
+    },
+)

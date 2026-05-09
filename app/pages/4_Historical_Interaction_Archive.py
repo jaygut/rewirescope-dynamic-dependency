@@ -3,14 +3,13 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-import plotly.express as px
 import streamlit as st
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
 
 from rewirescope.terminal_data import load_terminal_tables
 from rewirescope.terminal_ui import apply_terminal_style, boundary_callout, metric_strip, source_note
-from rewirescope.viz.figures import burkle_contrast_bars, burkle_contrast_network
+from rewirescope.viz.figures import burkle_contrast_bars, burkle_contrast_network, burkle_overlap_histogram
 
 
 st.set_page_config(page_title="Historical Interaction Archive", layout="wide")
@@ -55,16 +54,7 @@ with right:
     source_note("burkle_historical_contrast.csv", "edge_status, source_taxon_id, target_taxon_id")
 
 st.subheader("Phenological Overlap Loss")
-fig = px.histogram(
-    phenology,
-    x="overlap_delta_days",
-    color="edge_status",
-    barmode="overlay",
-    color_discrete_map={"lost": "#9B3A32", "persisted": "#2F6F4E"},
-    title="Overlap Delta on Historical/Reconstructed Edges",
-)
-fig.update_layout(template="plotly_white", height=380, margin=dict(l=10, r=10, t=45, b=10))
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(burkle_overlap_histogram(phenology), use_container_width=True)
 source_note("burkle_phenology_overlap_loss.csv", "old_overlap_days, now_overlap_days, overlap_delta_days")
 
 st.subheader("Contrast Records")

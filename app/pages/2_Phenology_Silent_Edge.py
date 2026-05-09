@@ -69,4 +69,14 @@ cols = [
     "confidence",
     "evidence_summary",
 ]
-st.dataframe(filtered_silent[cols], use_container_width=True, hide_index=True)
+st.dataframe(
+    filtered_silent[cols],
+    use_container_width=True,
+    hide_index=True,
+    column_config={
+        "candidate_type": st.column_config.TextColumn("candidate_type", width="medium"),
+        "source_taxon_id": st.column_config.TextColumn("source_taxon_id", width="medium"),
+        "target_taxon_id": st.column_config.TextColumn("target_taxon_id", width="medium"),
+        "evidence_summary": st.column_config.TextColumn("evidence_summary", width="large"),
+    },
+)

@@ -26,7 +26,7 @@ RewireScope turns temporal ecological data into decision signals:
 - `adaptive`
 - `compensatory-but-fragile`
 - `degradative`
-- `silent-edge-failure`
+- `candidate-silent-edge-failure`
 - `unresolved`
 
 The Streamlit terminal shows observed weekly rewiring in the RMBL / CaraDonna
@@ -91,7 +91,7 @@ python3 -m pip install -e ".[dev]"
 python3 scripts/audit_datasets.py
 python3 scripts/build_processed_data.py
 pytest
-streamlit run app/streamlit_app.py
+streamlit run app/Overview.py
 ```
 
 The terminal opens at:
@@ -142,4 +142,3 @@ chart is used to support a scientific claim.
 This is a scientific-demo POC, not a production risk model. The current build is
 designed to make the evidence boundary explicit while demonstrating how temporal
 interaction data can become an operational rewiring intelligence terminal.
-
