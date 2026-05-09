@@ -1,0 +1,14 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+outputs/demo_exports/*.csv
+outputs/demo_exports/*.json
+outputs/figures/*.html
+outputs/networks/*.graphml
+data/interim/
+data/processed/
+*.log

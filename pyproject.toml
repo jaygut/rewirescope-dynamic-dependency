@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rewirescope"
+version = "0.1.0"
+description = "Dynamic dependency intelligence for ecological networks under change."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "networkx>=3.4",
+  "numpy>=2.0",
+  "openpyxl>=3.1",
+  "pandas>=2.2",
+  "plotly>=6.0",
+  "pyyaml>=6.0",
+  "scipy>=1.14",
+  "streamlit>=1.44",
+]
+
+[project.optional-dependencies]
+analytics = [
+  "ruptures>=1.1",
+  "scikit-learn>=1.5",
+  "statsmodels>=0.14",
+]
+dev = [
+  "kaleido>=0.2.1",
+  "pytest>=8.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"

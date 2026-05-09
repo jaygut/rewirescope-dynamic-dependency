@@ -1,0 +1,28 @@
+{
+  "selection_rule": "Figure 1 uses the observed transition with highest changed_edges; Figures 2 and 3 use the same site-year context.",
+  "site_id": "shady_point",
+  "year": 2015,
+  "selected_week": "2015-W11",
+  "transition": {
+    "from_time_bin": "2015-W10",
+    "to_time_bin": "2015-W11",
+    "changed_edges": 63,
+    "rewiring_edges": 43,
+    "species_turnover_edges": 20,
+    "classification": "unresolved"
+  },
+  "exports": {
+    "figure_1": {
+      "html": "/Users/jaygut/Documents/Side_Projects/rewirescope-dynamic-dependency/outputs/notion_figures/rewirescope_figure_1.html",
+      "png": "/Users/jaygut/Documents/Side_Projects/rewirescope-dynamic-dependency/outputs/notion_figures/rewirescope_figure_1.png"
+    },
+    "figure_2": {
+      "html": "/Users/jaygut/Documents/Side_Projects/rewirescope-dynamic-dependency/outputs/notion_figures/rewirescope_figure_2.html",
+      "png": "/Users/jaygut/Documents/Side_Projects/rewirescope-dynamic-dependency/outputs/notion_figures/rewirescope_figure_2.png"
+    },
+    "figure_3": {
+      "html": "/Users/jaygut/Documents/Side_Projects/rewirescope-dynamic-dependency/outputs/notion_figures/rewirescope_figure_3.html",
+      "png": "/Users/jaygut/Documents/Side_Projects/rewirescope-dynamic-dependency/outputs/notion_figures/rewirescope_figure_3.png"
+    }
+  }
+}

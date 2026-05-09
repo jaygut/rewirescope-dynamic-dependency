@@ -1,0 +1,77 @@
+rmbl_caradonna:
+  title: "Temporal variation in plant-pollinator interactions, RMBL, 2013-2015"
+  primary_source: "https://doi.org/10.6073/pasta/27dc02fe1655e3896f20326fed5cb95f"
+  local_files:
+    interactions: "data/raw/rmbl_caradonna/caradonna_rmbl_interaction_networks_data_EDI.csv"
+    phenology: "data/raw/rmbl_caradonna/caradonna_rmbl_flowering_phenology_data_EDI.csv"
+    metadata: "data/raw/rmbl_caradonna/edi_512_1_metadata.xml"
+  observed_pairwise_edges: true
+  repeated_time_bins: true
+  raw_interaction_counts: true
+  sampling_effort_available: true
+  environmental_forcing_available: false
+  rebuild_network_snapshots: green
+  visualize_rewiring_events: green
+  allowed_claim_level: observed_rewiring
+  audit_notes: "EDI metadata and local CSV columns confirm date, week_num, site, transect, plant, pollinator, and interactions."
+
+lazaro_gomez_martinez:
+  title: "Habitat loss increases seasonal interaction rewiring in plant-pollinator networks"
+  primary_source: "https://doi.org/10.5061/dryad.1ns1rn8x3"
+  local_files:
+    linkset: "data/raw/lazaro_gomez_martinez/dryad_linkset.json"
+  observed_pairwise_edges: null
+  repeated_time_bins: null
+  raw_interaction_counts: null
+  sampling_effort_available: null
+  environmental_forcing_available: true
+  rebuild_network_snapshots: yellow
+  visualize_rewiring_events: yellow
+  allowed_claim_level: partial_contrast
+  audit_notes: "Dryad metadata confirms two XLSX files but command-line download was blocked by WAF; workbook sheets remain uninspected in this environment."
+
+burkle_120yr:
+  title: "Plant-pollinator interactions over 120 years"
+  primary_source: "https://doi.org/10.5061/dryad.rp321"
+  mirror_source: "https://zenodo.org/records/4948856"
+  supplemental_historical_reconstruction: "https://dshizuka.github.io/networkanalysis/example_Burkle2013.html"
+  local_files:
+    contemporary_interactions: "data/raw/burkle_120yr/dryad - interactions now.csv"
+    bee_phenology: "data/raw/burkle_120yr/dryad - bee phen.csv"
+    plant_phenology: "data/raw/burkle_120yr/dryad - plant phen.csv"
+    reconstructed_historical_edges: "data/raw/burkle_120yr/old_edgelist_paper_figure_reconstruction.csv"
+  observed_pairwise_edges: true
+  repeated_time_bins: false
+  raw_interaction_counts: true
+  sampling_effort_available: false
+  environmental_forcing_available: false
+  rebuild_network_snapshots: yellow
+  visualize_rewiring_events: yellow
+  allowed_claim_level: partial_contrast
+  audit_notes: "Dryad/Zenodo provide contemporary interactions and phenology; the historical network used here is an unweighted paper-figure reconstruction, not a raw historical edge table."
+
+noaa_ecomon:
+  title: "EcoMon Northeast U.S. Continental Shelf plankton dataset"
+  primary_source: "https://www.ncei.noaa.gov/archive/accession/0187513"
+  observed_pairwise_edges: false
+  repeated_time_bins: true
+  raw_interaction_counts: false
+  sampling_effort_available: true
+  environmental_forcing_available: true
+  rebuild_network_snapshots: red
+  visualize_rewiring_events: red
+  allowed_claim_level: inferred_dependency
+  audit_notes: "NCEI describes plankton abundance, distribution, temperature, and salinity, not observed pairwise trophic edges."
+
+helgoland_roads:
+  title: "Helgoland Roads plankton time series"
+  primary_source: "https://www.st.nmfs.noaa.gov/copepod/time-series/de-30201/"
+  observed_pairwise_edges: false
+  repeated_time_bins: true
+  raw_interaction_counts: false
+  sampling_effort_available: true
+  environmental_forcing_available: true
+  rebuild_network_snapshots: red
+  visualize_rewiring_events: red
+  allowed_claim_level: inferred_dependency
+  audit_notes: "COPEPOD/AWI pages support plankton time-series analysis; association networks would be inferred and must carry uncertainty labels."

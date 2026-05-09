@@ -1,0 +1,19 @@
+name: rewirescope
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - networkx
+  - numpy
+  - openpyxl
+  - pandas
+  - plotly
+  - pyyaml
+  - scipy
+  - streamlit
+  - pytest
+  - statsmodels
+  - scikit-learn
+  - pip
+  - pip:
+      - ruptures

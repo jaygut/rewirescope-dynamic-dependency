@@ -1,0 +1,21 @@
+sources:
+  - dataset_id: rmbl_caradonna
+    citation: "CaraDonna, P.J. 2020. Temporal variation in plant-pollinator interactions, Rocky Mountain Biological Laboratory, CO, USA, 2013-2015. Environmental Data Initiative."
+    doi: "10.6073/pasta/27dc02fe1655e3896f20326fed5cb95f"
+    license: "Public EDI package"
+  - dataset_id: lazaro_gomez_martinez
+    citation: "Lazaro, A.; Gomez-Martinez, C. 2022. Habitat loss increases seasonal interaction rewiring in plant-pollinator networks. Dryad."
+    doi: "10.5061/dryad.1ns1rn8x3"
+    license: "CC0-1.0"
+  - dataset_id: burkle_120yr
+    citation: "Burkle, L.A.; Marlin, J.C.; Knight, T.M. 2013. Plant-pollinator interactions over 120 years: loss of species, co-occurrence, and function. Dryad/Zenodo."
+    doi: "10.5061/dryad.rp321"
+    license: "CC0-1.0"
+  - dataset_id: noaa_ecomon
+    citation: "NOAA Northeast Fisheries Science Center. EcoMon plankton dataset, NCEI Accession 0187513."
+    url: "https://www.ncei.noaa.gov/archive/accession/0187513"
+    license: "NOAA public data"
+  - dataset_id: helgoland_roads
+    citation: "COPEPOD Helgoland Roads time series and AWI long-term observations."
+    url: "https://www.st.nmfs.noaa.gov/copepod/time-series/de-30201/"
+    license: "Source-dependent"
